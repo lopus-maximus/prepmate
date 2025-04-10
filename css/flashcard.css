@@ -1,0 +1,46 @@
+.row1 {
+  display: flex;
+}
+
+.search-box {
+  border: none;
+  border-radius: 8px;
+  background: #ebebeb;
+  padding: 0.8rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  color: #2f1345;
+}
+
+.search-input {
+  border: none;
+  background-color: #ebebeb;
+  outline: none;
+  margin-left: 1rem;
+  width: 90%;
+}
+
+.search-input::placeholder {
+  color: rgb(180, 180, 180);
+  font-size: 1rem;
+}
+
+.flashcard-box {
+  background-color: #e1b3ff;
+  padding: 2rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  margin: 2rem 0 2rem 0;
+}
+
+.flashcard-text,
+.create-link,
+.folder-icon {
+  color: #2f1345;
+}
