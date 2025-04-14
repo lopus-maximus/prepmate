@@ -149,13 +149,10 @@ $conn->close();
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
     <div id="sidebar"></div>
     
-    <!-- Header -->
     <div id="header"></div>
     
-    <!-- Main Content -->
     <main class="main-content">
         <div class="container">
             <h2><?php echo $deckTitle; ?></h2>

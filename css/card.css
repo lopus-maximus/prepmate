@@ -1,6 +1,10 @@
 .flashcards {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+  justify-items: center;
 }
 
 .card {
@@ -8,9 +12,10 @@
   background-color: #8d67ad;
   border-radius: 10px;
   padding: 1.5rem;
-  margin: 1rem 2rem 1rem 0;
+  margin: 1rem 0 1rem 0;
   justify-content: center;
-  width: 40rem;
+  width: 100%;
+  max-width: 20rem;
 }
 
 .card h2 {

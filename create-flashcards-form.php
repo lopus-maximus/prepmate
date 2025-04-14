@@ -9,13 +9,10 @@
   <link rel="stylesheet" href="css/createFlashcards.css" />
 </head>
 <body>
-  <!-- Sidebar Placeholder -->
   <div id="sidebar"></div>
 
-  <!-- Header Placeholder -->
   <div id="header"></div>
 
-  <!-- Main Content -->
   <main class="main-content">
     <form method="POST" action="create-flashcards.php" id="flashcard-form">
       <div style="color:rgb(255, 255, 255); font-size: 2.5rem; font-weight: lighter">
@@ -29,7 +26,6 @@
       </div>
 
       <div class="card-container" id="card-container">
-        <!-- Cards will be dynamically inserted here by JS -->
       </div>
 
       <button type="button" class="addBtn" onclick="addCard()">ADD CARD</button>
@@ -66,7 +62,6 @@
       document.getElementById('card-container').appendChild(card);
     }
 
-    // Add 3 cards by default
     window.onload = () => {
       addCard();
       addCard();

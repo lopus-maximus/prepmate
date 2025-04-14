@@ -1,4 +1,3 @@
-/* Reset and Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +5,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Header Styles */
 .header {
   width: 100%;
   height: 50px;
@@ -31,7 +29,6 @@
   color: white;
 }
 
-/* User Profile in Header */
 .user-profile {
   display: flex;
   align-items: center;
@@ -53,7 +50,6 @@
   cursor: pointer;
 }
 
-/* Sidebar Styles */
 .sidebar {
   width: 250px;
   height: 100vh;
@@ -61,15 +57,14 @@
   padding: 5px;
   padding-top: 5px;
   position: fixed;
-  top: 0; /* Overlapping the header */
+  top: 0;
   left: 0;
-  z-index: 1100; /* Ensuring it stays on top */
+  z-index: 1100;
   transition: width 0.3s ease-in-out;
   overflow: hidden;
   box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Sidebar Header (Logo & Toggle Button) */
 .sidebar-header {
   display: flex;
   align-items: center;
@@ -93,7 +88,6 @@
   font-weight: bold;
 }
 
-/* Menu List */
 .sidebar .menu {
   list-style: none;
   padding: 0;
@@ -103,7 +97,6 @@
   margin: 0px;
 }
 
-/* Menu Links */
 .sidebar .menu a {
   display: flex;
   align-items: center;
@@ -125,18 +118,16 @@
   transition: opacity 0.3s ease, width 0.3s ease;
 }
 
-/* Hover and Active State */
 .sidebar .menu a.active {
-  background: rgba(0, 0, 0, 0.1); /* Corrected transparency */
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .sidebar .menu a:hover {
-  background: rgba(0, 0, 0, 0.04); /* Corrected transparency */
+  background: rgba(0, 0, 0, 0.04);
   transform: translate(1px);
-  transition: transform 0.3s ease-in-out; /* Corrected transition */
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Sidebar Collapsed State */
 .sidebar.collapsed {
   width: 65px;
   padding: 5px;
@@ -161,15 +152,13 @@
   overflow: hidden;
 }
 
-/* Main Content */
 .main-content {
-  margin-left: 250px; /* Matches expanded sidebar */
+  margin-left: 250px;
   margin-top: 40px;
   padding: 40px;
   transition: margin-left 0.3s ease-in-out;
 }
 
-/* When Sidebar is Collapsed */
 .main-content.shifted {
-  margin-left: 65px; /* Matches collapsed sidebar */
+  margin-left: 65px;
 }

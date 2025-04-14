@@ -10,16 +10,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #f9f9f9;
+  background: #000000;
+  color: white;
 }
 
 .container {
   display: flex;
-  width: 80%;
+  width: 90%;
   height: 90vh;
-  background: white;
+  background: rgb(0, 0, 0);
   border-radius: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.reg-a {
+  color: #9f06ff;
+  text-decoration: none;
 }
 
 /* Left Section */
@@ -55,14 +61,14 @@ h2 {
 .input-box {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid #ffffff;
   padding: 0.8rem;
   border-radius: 0.5rem;
 }
 
 .input-box i {
   margin-right: 0.5rem;
-  color: gray;
+  color: rgb(255, 255, 255);
 }
 
 .input-box input {
@@ -70,8 +76,13 @@ h2 {
   border: none;
   outline: none;
   font-size: 1rem;
+  color: white;
+  background-color: #000000;
 }
 
+.input-box input::placeholder {
+  color: rgb(221, 220, 219);
+}
 .toggle-password {
   cursor: pointer;
 }
@@ -85,14 +96,13 @@ h2 {
 
 .options a {
   text-decoration: none;
-  color: navy;
-  font-weight: bold;
+  color: #8d67ab;
 }
 
 .login-btn {
   width: 100%;
   padding: 0.8rem;
-  background: navy;
+  background: #8d67ab;
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -119,10 +129,9 @@ h2 {
   cursor: pointer;
 }
 
-/* Right Section */
 .right-section {
   width: 50%;
-  background: #0a0a22;
+  background: #301f3d;
   color: white;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;

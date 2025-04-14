@@ -29,6 +29,7 @@ $conn->close();
   <title>Attempt Flashcards</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
       background: black;
@@ -164,7 +165,6 @@ $conn->close();
   const knowBtn = document.getElementById("know-btn");
   const learningBtn = document.getElementById("learning-btn");
   
-  // Get flashcards data
   const flashcards = <?= json_encode($flashcards) ?>;
   const deckId = <?= $deckId ?>;
   let current = 0;
@@ -174,14 +174,12 @@ $conn->close();
     learning: 0
   };
 
-  // Function to handle card flip
   function flipCard() {
     console.log("Flip card clicked");
     isFlipped = !isFlipped;
     card.classList.toggle("flipped");
   }
 
-  // Function to render current card
   function renderCard(index) {
     if (index >= flashcards.length) {
       redirectToStats();
@@ -192,12 +190,10 @@ $conn->close();
     back.innerText = flashcards[index].answer;
     progress.innerText = (index + 1) + " / " + flashcards.length;
 
-    // Reset flip
     card.classList.remove("flipped");
     isFlipped = false;
   }
 
-  // Function to handle responses
   function markResponse(type) {
     if (type === 'know') stats.know++;
     else if (type === 'learning') stats.learning++;
@@ -206,17 +202,13 @@ $conn->close();
     renderCard(current);
   }
 
-  // Function to redirect to stats page
   function redirectToStats() {
     window.location.href = `flashcard-stats.php?deck_id=${deckId}&know=${stats.know}&learning=${stats.learning}`;
   }
 
-  // Set up event listeners only after DOM is fully loaded
   function setupEventListeners() {
-    // Card click event
     card.addEventListener("click", flipCard);
     
-    // Button click events
     knowBtn.addEventListener("click", function() {
       markResponse('know');
     });
@@ -226,14 +218,12 @@ $conn->close();
     });
   }
 
-  // Initialize on page load
   function init() {
     renderCard(current);
     setupEventListeners();
     console.log("Flashcard system initialized");
   }
 
-  // Run initialization when DOM is loaded
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {
@@ -245,7 +235,6 @@ $conn->close();
   <?php endif; ?>
 </main>
 
-<!-- Load layout script at the end, but make it non-blocking -->
 <script src="js/layout.js" async defer onerror="console.log('Layout script failed to load but won\'t affect core functionality')"></script>
 </body>
 </html>

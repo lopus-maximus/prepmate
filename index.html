@@ -3,71 +3,679 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign In</title>
-    <link rel="stylesheet" href="css/login.css" />
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
+    <title>PrepMate - Crack that Interview</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Manrope", sans-serif;
+        background-color: #0e0e0e;
+        color: #fff;
+        line-height: 1.6;
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        padding-bottom: 4rem;
+      }
+      header {
+        background: transparent;
+        z-index: 10;
+        padding: 30px 0;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-bottom: none;
+      }
+      .nav {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-links {
+        display: flex;
+        gap: 25px;
+      }
+      .nav-links a {
+        color: #ccc;
+        font-weight: 500;
+      }
+      .hero {
+        display: flex;
+        justify-content: space-around;
+        padding: 100px 70px 60px 70px;
+        text-align: left;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.8),
+            rgba(255, 255, 255, 0.9)
+          ),
+          url("assets/BG.png");
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        animation: fadeUp 1s ease-out forwards;
+      }
+      .hero p {
+        max-width: 600px;
+        margin-top: 10px;
+        color: #ffffff;
+        font-size: 1.1rem;
+        animation: fadeUp 1.2s ease-out forwards;
+      }
+      .hero .cta-btn {
+        margin-top: 30px;
+        display: inline-block;
+        background: #552c77;
+        opacity: 0.8;
+        color: white;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-weight: bold;
+        animation: fadeUp 1.4s ease-out forwards;
+        transition: background 0.3s;
+      }
+      .hero .cta-btn:hover {
+        background: #5e35b1;
+      }
+
+      .card-flip {
+        perspective: 1000px;
+        width: 25rem;
+        height: 10rem;
+        margin: 3rem;
+      }
+
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+        border-radius: 15px;
+      }
+
+      .card-flip:hover .card-inner {
+        transform: rotateY(180deg);
+      }
+
+      .flipped {
+        transform: rotateY(180deg);
+      }
+
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        border-radius: 15px;
+        font-size: 1.3rem;
+        background-color: #351E48;
+        opacity: 0.7;
+        color: white;
+      }
+
+      .card-back {
+        transform: rotateY(180deg);
+        background-color: #351E48;
+        opacity: 0.6;
+      }
+
+      .feature-section,
+      .testimonials,
+      .footer {
+        padding: 80px 0;
+      }
+      .feature-section h2,
+      .testimonials h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+      .feature-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .feature-card {
+        background: #ffffff;
+        padding: 30px;
+        opacity: 90%;
+        border-radius: 16px;
+        flex: 1 1 30%;
+        color: rgb(0, 0, 0);
+        font-weight: lighter;
+        min-width: 250px;
+        transition: transform 0.3s;
+      }
+      .feature-card:hover {
+        transform: translateY(-8px);
+      }
+      .testimonials-section {
+      margin-left: 3rem;
+    }
+
+    .testimonials-section h1 {
+      font-size: 48px;
+      font-weight: 300;
+      margin-bottom: 50px;
+    }
+
+    .testimonial-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .testimonial-card {
+      background: #fff;
+      color: #000;
+      border-radius: 16px;
+      padding: 30px;
+      width: 350px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .testimonial-card .quote-icon {
+      color: #C793E7;
+      font-size: 50px;
+
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .student-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .student-info img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .student-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .student-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .student-college {
+      font-size: 13px;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      .testimonial-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .testimonial-card {
+        width: 90%;
+      }
+    }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 3rem;
+        gap: 4rem;
+      }
+
+      .newsletter {
+        flex: 1;
+        max-width: 55%;
+      }
+
+      .newsletter h2 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .newsletter p {
+        margin-bottom: 1.5rem;
+        color: #ccc;
+      }
+
+      .newsletter input,
+      .newsletter button {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+
+      .newsletter input {
+        background-color: #8d67ab;
+        color: white;
+        width: 350px;
+      }
+
+      .newsletter button {
+        background-color: #5f4177;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        width: 120px;
+      }
+
+      .form input::placeholder {
+        color: #D9D9D9;
+      }
+
+
+      .info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-width: 300px;
+        position: relative;
+      }
+
+      .nav {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+      }
+
+      .contact,
+      .location {
+        margin-bottom: 1.5rem;
+        padding-left: 100px;
+      }
+
+      .socials {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-align: right;
+      }
+
+      .socials h4 {
+        margin-bottom: 0.5rem;
+      }
+
+      .socials .icons {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        font-size: 1.3rem;
+      }
+
+      .socials a {
+        color: white;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+      }
+      
+      .socials a:hover {
+        color: #a78bfa; 
+      
+      }
+      .footer-container {
+        padding: 4rem;
+        background-color: #000000;
+      }
+
+      .footer-card {
+        background-color: #2f2f30; 
+        border-radius: 20px;
+        padding: 3rem;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .typing-cursor {
+        display: inline-block;
+        width: 3px;
+        background-color: #fff;
+        animation: blink 0.7s infinite;
+        margin-left: 5px;
+        height: 2.8rem;
+        vertical-align: middle;
+      }
+      
+      @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      
+      .second-line {
+        visibility: hidden;
+      }
+      .typing-text-container {
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <div class="container">
-      <!-- Left Section - Sign In Form -->
-      <div class="left-section">
-        <h2>Prep<span style="color: #000a4a">Mate</span></h2>
+    <header>
+      <div class="container nav">
+        <div class="logo"><strong style="color: #a88bfe">Prep</strong>Mate</div>
+        <div class="nav-links">
+          <a href="#">About Us</a>
+          <a href="#">FAQ</a>
+          <a href="#">Plans</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </header>
 
-        <div class="signin-box">
-          <h2>Sign in</h2>
-          <p>
-            If you don't have an account, register
-            <a href="#">Register here!</a>
-          </p>
+    <section class="hero">
+      <div class="container">
+        <h1 class="typing-text-container">
+          <span id="typing-text-1"></span><br>
+          <span id="typing-text-2" class="second-line"></span>
+          <span class="typing-cursor"></span>
+        </h1>
+        <p>
+          A smarter way to revise interview questions - from core CS subjects to
+          behavioral rounds. Quick, engaging and tailored for students.
+        </p>
+        <a href="login.html" class="cta-btn">Get Started</a>
+      </div>
+      <div class="card-flip">
+        <div class="card-inner" id="autoFlipCard">
+          <div class="card-front">
+            What if interview prep felt like swiping on stories?
+          </div>
+          <div class="card-back">Tap. Flip. Repeat. <br />Sign Up Now!</div>
+        </div>
+      </div>
+    </section>
 
-          <div class="input-group">
-            <label>Email</label>
-            <div class="input-box">
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Enter your email address" />
+    <section class="feature-section">
+      <div class="container">
+        <h2 style="font-weight: lighter;">For every "Why should we hire you?", we've got a card.</h2>
+        <div class="feature-cards">
+          <div class="feature-card">
+            <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+              <img
+                src="assets/Grid-4.svg"
+                alt="Pick a Topic Icon"
+                class="feature-icon"
+              />
+              <h3>Pick a Topic</h3>
             </div>
+            <p>Choose from DSA, OOPS, OS, HR questions, and more.</p>
           </div>
-
-          <div class="input-group">
-            <label>Password</label>
-            <div class="input-box">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Enter your Password" />
-              <i class="fas fa-eye-slash toggle-password"></i>
+          <div class="feature-card">
+            <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+              <img
+                src="assets/Grid-4.svg"
+                alt="Pick a Topic Icon"
+                class="feature-icon"
+              />
+              <h3>Flip & Learn</h3>
             </div>
+            <p>
+              Practice like you're swiping flashcards designed to boost overall
+              confidence.
+            </p>
           </div>
-
-          <div class="options">
-            <label><input type="checkbox" /> Remember me</label>
-            <a href="#">Forgot Password?</a>
-          </div>
-
-          <button
-            onclick="window.location.href='dashboard.html'"
-            class="login-btn"
-          >
-            Login
-          </button>
-
-          <p class="or-text">or continue with</p>
-
-          <div class="social-icons">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-google"></i>
+          <div class="feature-card">
+            <div style="display: flex; align-items: center; margin-bottom: 2rem;">
+              <img
+                src="assets/Grid-4.svg"
+                alt="Pick a Topic Icon"
+                class="feature-icon"
+              />
+              <h3>Track Progress</h3>
+            </div>
+            <p>See what you've mastered and what needs more preparation.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Right Section - Illustration -->
-      <div class="right-section">
-        <div class="image-placeholder">
-          <img src="assets/Saly-10.png" alt="Illustration" />
+    <section class="testimonials-section">
+      
+      <h1 style="font-weight: lighter;">Student<br>Testimonials</h1>
+  
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="quote-icon">❝</div>
+          <div class="testimonial-text">
+            "The flashcards helped me revise every morning on the bus. I cracked my TCS interview last month!"
+          </div>
+          <div class="student-info">
+            <img src="assets/pic.png" alt="Student photo">
+            <div class="student-details">
+              <span class="student-name">Rahul Varma</span>
+              <span class="student-college">VIT Vellore</span>
+            </div>
+          </div>
         </div>
-        <h3>Sign in to PrepMate</h3>
+  
+        <div class="testimonial-card">
+          <div class="quote-icon">❝</div>
+          <div class="testimonial-text">
+            "I used to feel overwhelmed looking at long notes. With flashcards, I could revise DSA and OS in just 15 minutes every day. It changed my prep game."
+          </div>
+          <div class="student-info">
+            <img src="assets/pic.png">
+            <div class="student-details">
+              <span class="student-name">Hiran Anuraja</span>
+              <span class="student-college">BITS Pilani</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="testimonial-card">
+          <div class="quote-icon">❝</div>
+          <div class="testimonial-text">
+            "This app made me consistent. Even on days I didn’t feel like studying, I’d flip through 10 cards while waiting for class."
+          </div>
+          <div class="student-info">
+            <img src="assets/pic.png">
+            <div class="student-details">
+              <span class="student-name">Charuditha Jayood</span>
+              <span class="student-college">IIT Bombay</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div class="footer-container">
+        <div class="footer-card">
+          <div class="newsletter">
+            <h2>Prep smarter, not harder.</h2>
+            <p>
+              Stay updated on features and opportunities. Subscribe to our
+              newsletter.
+            </p>
+            <form method="post" class="form">
+            <input type="text" placeholder="Enter your name" />
+            <input type="email" placeholder="Enter your email" />
+            <input type="tel" placeholder="Enter your phone no." /><br />
+            <button>Subscribe</button>
+          </form>
+          </div>
+
+          <div class="info">
+            <div class="nav">
+              <a href="#">About Us</a>
+              <a href="#">FAQ</a>
+              <a href="#">Plans</a>
+              <a href="#">Contact Us</a>
+            </div>
+
+            <div class="contact">
+              <h4>Contact Us</h4>
+              <p>+1 (999) 888-77-66</p>
+              <p>hello@prepmate.com</p>
+            </div>
+
+            <div class="location">
+              <h4>Location</h4>
+              <p>Vellore, Tamil Nadu</p>
+              <p>632014</p>
+            </div>
+
+            <div class="socials">
+              <h4>Socials</h4>
+              <div class="socials">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+              </div>              
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <script>
+      // Auto-flip functionality
+      const card = document.getElementById('autoFlipCard');
+      let isHovered = false;
+      let flipInterval;
+      const FLIP_DELAY = 5000; 
+      
+      function toggleFlip() {
+        if (!isHovered) {
+          card.classList.toggle('flipped');
+        }
+      }
+      
+      flipInterval = setInterval(toggleFlip, FLIP_DELAY);
+      
+      card.parentElement.addEventListener('mouseenter', () => {
+        isHovered = true;
+        card.classList.remove('flipped');
+      });
+      
+      card.parentElement.addEventListener('mouseleave', () => {
+        isHovered = false;
+      });
+      
+      const firstLine = "Crack that Interview,";
+      const secondLine = "One FlashCard At A Time";
+
+      const typingSpeed = 100; 
+      const deletingSpeed = 50; 
+      const delayBetweenLines = 100; 
+      const pauseBeforeDelete = 2000; 
+
+      const typingElement1 = document.getElementById('typing-text-1');
+      const typingElement2 = document.getElementById('typing-text-2');
+
+      function typeText(element, text, i = 0, callback = null) {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          setTimeout(() => typeText(element, text, i + 1, callback), typingSpeed);
+        } else if (callback) {
+          setTimeout(callback, pauseBeforeDelete);
+        }
+      }
+
+      function deleteText(element, callback = null) {
+        const text = element.textContent;
+        if (text.length > 0) {
+          element.textContent = text.substring(0, text.length - 1);
+          setTimeout(() => deleteText(element, callback), deletingSpeed);
+        } else if (callback) {
+          callback();
+        }
+      }
+
+      function startTypingCycle() {
+        typeText(typingElement1, firstLine, 0, () => {
+          setTimeout(() => {
+            typingElement2.style.visibility = 'visible';
+            typeText(typingElement2, secondLine, 0, () => {
+              deleteText(typingElement2, () => {
+                deleteText(typingElement1, () => {
+                  typingElement2.style.visibility = 'hidden';
+                  startTypingCycle();
+                });
+              });
+            });
+          }, delayBetweenLines);
+        });
+      }
+
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          startTypingCycle();
+        }, 500); 
+      });
+    </script>
   </body>
 </html>

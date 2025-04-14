@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  // Only load components if their containers exist
   if (document.getElementById("header")) {
     await loadComponent("header", "components/header.html");
   }
@@ -19,9 +18,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       content.classList.toggle("shifted");
     });
   }
-
-  // Don't add flipcard event listener here since it's handled in the main page script
-  // This prevents double event handlers that could cause issues
 
   // Sidebar active state handling
   setTimeout(() => {
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }, 100);
 });
 
-// Function to load components dynamically with better error handling
 async function loadComponent(id, file) {
   try {
     const response = await fetch(file);

@@ -33,21 +33,17 @@ $result = $conn->query($sql);
 </head>
 <body>
 
-<!-- Sidebar -->
 <div id="sidebar"></div>
-<!-- Header -->
 <div id="header"></div>
 
 <main class="main-content">
   <div style="color: #b584dc; font-size: 2.5rem; font-weight: bolder">Flashcards</div>
 
-  <!-- Search box -->
   <div class="search-box">
     <button class="search-btn"><i class="fas fa-search"></i></button>
     <input type="text" class="search-input" placeholder="Search for flashcards" />
   </div>
 
-  <!-- Create new deck -->
   <div class="flashcard-box">
     <div>
       <i class="fas fa-folder folder-icon"></i>
@@ -56,7 +52,6 @@ $result = $conn->query($sql);
     <a href="create-flashcards-form.php" class="create-link" style="text-decoration: none">Create</a>
   </div>
 
-  <!-- All decks -->
   <div class="flashcards">
     <?php
     if ($result->num_rows > 0) {
@@ -65,7 +60,6 @@ $result = $conn->query($sql);
             $created = date("d - m - Y", strtotime($row['created_at']));
             $deckId = $row['id'];
 
-            // Count number of cards
             $countRes = $conn->query("SELECT COUNT(*) as total FROM flashcards WHERE deck_id = $deckId");
             $countRow = $countRes->fetch_assoc();
             $totalCards = $countRow['total'];
